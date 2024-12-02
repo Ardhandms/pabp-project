@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekomendasi Lokasi UMKM Kota Tasikmalaya</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Rekomendasi Lokasi UMKM Kota Tasikmalaya</h1>
+    </header>
+    <main>
+      <section class="form-section">
+        <h2>Pengisian Data UMKM</h2>
+        <form id="umkmForm">
+          <label for="namaUmkm">Nama UMKM</label>
+          <input
+            type="text"
+            id="namaUmkm"
+            name="namaUmkm"
+            placeholder="Masukkan nama UMKM"
+            required
+          />
+
+          <label for="jenisUmkm">Jenis UMKM</label>
+          <select id="jenisUmkm" name="jenisUmkm" required>
+            <option value="" disabled selected>Pilih jenis UMKM</option>
+            <option value="sembako">Sembako</option>
+            <option value="jasa">Jasa</option>
+            <option value="makanan">Makanan</option>
+          </select>
+
+          <div id="makananOptions" style="display: none">
+            <label>Jenis Makanan</label>
+            <input type="radio" id="halal" name="jenisMakanan" value="halal" />
+            <label for="halal">Halal</label>
+            <input
+              type="radio"
+              id="nonHalal"
+              name="jenisMakanan"
+              value="non-halal"
+            />
+            <label for="nonHalal">Non-Halal</label>
+          </div>
+
+          <button type="submit">Cari Lokasi</button>
+        </form>
+      </section>
+
+      <section class="map-section">
+        <h2>Peta Lokasi</h2>
+        <div id="map">Peta akan muncul di sini.</div>
+      </section>
+
+      <section class="result-section">
+        <h2>Hasil Rekomendasi</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Nama Tempat</th>
+              <th>Skor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>85</td>
+              <td>Sangat Direkomendasikan</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>70</td>
+              <td>Direkomendasikan</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>55</td>
+              <td>Tidak Direkomendasikan</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 UAS Matakuliah Pemrograman Aplikasi Berbasik Platform</p>
+    </footer>
+
+    <script>
+      // Menampilkan opsi halal/non-halal jika jenis UMKM adalah makanan
+      document
+        .getElementById("jenisUmkm")
+        .addEventListener("change", function () {
+          const makananOptions = document.getElementById("makananOptions");
+          makananOptions.style.display =
+            this.value === "makanan" ? "block" : "none";
+        });
+    </script>
+  </body>
+</html>
